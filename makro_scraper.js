@@ -27,7 +27,7 @@ function get_prices() {
 		console.log('get_prices :: request');
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			console.log('get_prices :: table');
-			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
+			fuels[i] = ('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			console.log('get_prices :: ' + fuel_types[i]);
 			i++;
 		});
