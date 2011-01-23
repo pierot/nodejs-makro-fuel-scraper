@@ -5,7 +5,7 @@ var request = require('request'),
 		$ = require('jquery');
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.writeHead(200, {'Content-Type': 'text/html'});
 
   res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('<fuels>\n');
