@@ -1,6 +1,8 @@
 var request = require('request'),
 		http = require('http'),
 		$ = require('jquery');
+		
+var http_response = '-';
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
@@ -29,9 +31,11 @@ function get_prices() {
 			console.log('get_prices :: table');
 			fuels += '<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'; 
 			console.log('get_prices :: ' + fuel_types[i]);
+			console.log('get_prices :: ' + http_response);
 			i++;
 		});
 	});
+	console.log(http_response);
 	console.log(fuels);
 	return fuels;
 }
