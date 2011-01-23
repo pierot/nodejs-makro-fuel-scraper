@@ -24,7 +24,7 @@ http.createServer(function (req, res) {
 			res.write('' + i);
 			i++;
 			res.write('-');
-			console.log(res)
+			res.end();
 			console.log('/table');
 		});
 		
