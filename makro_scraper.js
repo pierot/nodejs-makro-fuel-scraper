@@ -10,7 +10,7 @@ http.createServer(function (req, res) {
 		res.write('<fuels>\n');
 		
 		$(body).find('div.boxContent table[width="337"]').each(function(index, element) { 
-			res.write('<' + fuel_types[index] + '>' + element.find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[index] + '>\n'); 
+			res.write('<' + fuel_types[index] + '>' + $(element).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[index] + '>\n'); 
 		});
 		
 		res.end('</fuels>\n');
