@@ -18,17 +18,12 @@ http.createServer(function (req, res) {
 	
   request({uri: url}, function (error, response, body) {
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
-			console.log($(this).find('tr:first-child').next().find('td:last').html());
-			
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
-			
-			console.log(i);
-			console.log(fuels[i]);
 			
 			i++;
 		});
 	});
-	
+	console.log(fuels);
 	for(var j = 0; j < fuels.length; j++)
 		res.write(fuels[j]);
 	
