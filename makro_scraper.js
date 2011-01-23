@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
   res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('<fuels>\n');
 	
-	http_response = '';
+
 	i = 0;
 	
 	request({uri: 'http://www.makro.be/Content/assortiment/benzinestation/benzineprijzen/1/index.jsp?stat='}, function (error, response, body) {
