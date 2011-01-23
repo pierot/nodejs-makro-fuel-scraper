@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
 	
   request({uri: url}, function (error, response, body) {
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
-			console.log($(this).find('tr:first-child').next().find('td:last'));
+			console.log($(this).find('tr:first-child').next().find('td:last').html()));
 			
 			res.write('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
