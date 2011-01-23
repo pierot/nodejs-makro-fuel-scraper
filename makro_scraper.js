@@ -1,8 +1,8 @@
-var request = require('request'), 
-		jsdom = require('jsdom'), 
-		sys = require('sys'), 
-		http = require('http'),
-		$ = require('jquery');
+var request = require('request'); 
+var jsdom = require('jsdom'); 
+var sys = require('sys');
+var http = require('http');
+var $ = require('jquery');
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/xml'});
@@ -22,7 +22,9 @@ http.createServer(function (req, res) {
 		});
 	});
 	
+	console.log(fuels);
 	console.log(fuels[0]);
+	console.log(fuels[1]);
 	
 	for(var j = 0; j < fuels.length; j++)
 		res.write(fuels[j]);
