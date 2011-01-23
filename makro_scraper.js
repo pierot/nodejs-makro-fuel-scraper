@@ -17,6 +17,7 @@ http.createServer(function (req, res) {
 	var i = 0;
 	
   request({uri: url}, function (error, response, body) {
+	console.log('ingeladen');
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			console.log(fuels);
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
