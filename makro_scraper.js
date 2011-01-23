@@ -9,7 +9,6 @@ var fuel_types = ['diesel', 'eurosuper', 'superplus'];
 var i = 0;
 
 http.createServer(function (req, res) {
-	console.log(req);
   res.writeHead(200, {'Content-Type': 'text/xml'});
 
   res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
@@ -17,6 +16,8 @@ http.createServer(function (req, res) {
 	
   request({uri: url}, function (error, response, body) {
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
+			console.log($(this).find('tr:first-child').next().find('td:last'));
+			
 			res.write('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
 			i++;
