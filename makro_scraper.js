@@ -32,6 +32,7 @@ function get_prices() {
 			fuels += '<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'; 
 			console.log('get_prices :: ' + fuel_types[i]);
 			console.log('get_prices :: ' + http_response);
+			http_response = http_response + i;
 			i++;
 		});
 	});
