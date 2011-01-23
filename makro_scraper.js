@@ -12,7 +12,11 @@ http.createServer(function (req, res) {
   res.write('Hello Node.js\n');
 
   request({uri: url}, function (error, response, body) {
-		console.log(body);
+		$(body).find('div.boxContent table[width="337"] tr:first-child').each(function() { 
+			console.log($(this).next().find('td:last').html()); 
+		});
 	});
+	
+	res.end('Done!');
 
 }).listen(8124);
