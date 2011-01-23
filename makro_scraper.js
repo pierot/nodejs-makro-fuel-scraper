@@ -15,12 +15,15 @@ http.createServer(function (req, res) {
 	var i = 0;
 	
   request({uri: 'http://www.makro.be/Content/assortiment/benzinestation/benzineprijzen/1/index.jsp?stat='}, function (error, response, body) {
-		fuels = [];
+		console.log(fuels);
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
+			res.write(i);
 			i++;
 		});
+		
+		res.write('test');
 	});
 	
 	console.log(fuels);
