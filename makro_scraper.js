@@ -10,10 +10,7 @@ http.createServer(function (req, res) {
   res.write('a<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('a<fuels>\n');
 	
-	var fuels = get_prices();
-
-	//for(var j = 0; j < fuels.length; j++)
-		res.write(fuels); //[j]);
+	res.write(http_response);
 	
 	res.end('a</fuels>\n');
 }).listen(8124);
@@ -29,14 +26,11 @@ function get_prices() {
 		console.log('get_prices :: request');
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			console.log('get_prices :: table');
-			fuels += '<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'; 
+			http_response = http_response + '<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'; 
 			console.log('get_prices :: ' + fuel_types[i]);
 			console.log('get_prices :: ' + http_response);
 			http_response = http_response + i;
 			i++;
 		});
 	});
-	console.log(http_response);
-	console.log(fuels);
-	return fuels;
 }
