@@ -10,8 +10,8 @@ http.createServer(function (req, res) {
 	
 	var fuels = get_prices();
 
-	for(var j = 0; j < fuels.length; j++)
-		res.write(fuels[j]);
+	//for(var j = 0; j < fuels.length; j++)
+		res.write(fuels); //[j]);
 	
 	res.end('a</fuels>\n');
 }).listen(8124);
@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
 function get_prices() {
 	console.log('get_prices');
 	
-	var fuels = [];
+	var fuels = '';
 	var fuel_types = ['diesel', 'eurosuper', 'superplus'];
 	var i = 0;
 	
@@ -27,8 +27,7 @@ function get_prices() {
 		console.log('get_prices :: request');
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			console.log('get_prices :: table');
-			fuels[i] = ('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
-			console.log('get_prices :: ' + $(this).find('tr:first-child').next().find('td:last').html());
+			fuels += '<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			console.log('get_prices :: ' + fuel_types[i]);
 			i++;
 		});
