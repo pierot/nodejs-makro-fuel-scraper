@@ -7,8 +7,8 @@ var request = require('request'),
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
 
-  res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
-	res.write('<fuels>\n');
+  res.write('a<?xml version="1.0" encoding="UTF-8"?>\n');
+	res.write('a<fuels>\n');
 	
 	var fuel_types = ['diesel', 'eurosuper', 'superplus'];
 	var fuels = [];
@@ -30,7 +30,7 @@ http.createServer(function (req, res) {
 		
 		res.write('test');
 	});
-	
+	res.write('test2');
 	console.log(fuels);
 	console.log(fuels[0]);
 	console.log(fuels[1]);
@@ -38,5 +38,5 @@ http.createServer(function (req, res) {
 	for(var j = 0; j < fuels.length; j++)
 		res.write(fuels[j]);
 	
-	res.end('</fuels>\n');
+	res.end('a</fuels>\n');
 }).listen(8124);
