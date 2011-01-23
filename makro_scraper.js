@@ -13,6 +13,10 @@ http.createServer(function (req, res) {
 
   request({uri: url}, function (error, response, body) {
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
+			console.log($(this));
+			
+			console.log($(this).find('tr:first-child').next());
+			 
 			console.log($(this).find('tr:first-child').next().find('td:last').html()); 
 		});
 	});
