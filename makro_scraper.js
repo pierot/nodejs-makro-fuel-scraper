@@ -13,11 +13,13 @@ http.createServer(function (req, res) {
   res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('<fuels>\n');
 	
-	var fuels = [];
+	var fuels = ['a'];
 	var i = 0;
 	
   request({uri: url}, function (error, response, body) {
+		console.log(fuels);
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
+			console.log(fuels);
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
 			i++;
