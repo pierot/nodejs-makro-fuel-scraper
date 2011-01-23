@@ -1,4 +1,4 @@
-var request = require('request'), http = require('http'), $ = require('jquery');
+var request = require('request'), http = require('http'), $ = require('jquery'), querystring = require('querystring');
 
 http.createServer(function (req, res) {
 	console.log(querystring.parse(req.url));
