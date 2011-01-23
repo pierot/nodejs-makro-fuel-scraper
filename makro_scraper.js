@@ -12,8 +12,8 @@ http.createServer(function (req, res) {
   res.write('Hello Node.js\n');
 
   request({uri: url}, function (error, response, body) {
-		$(body).find('div.boxContent table[width="337"] tr:first-child').each(function() { 
-			console.log($(this).next().find('td:last').html()); 
+		$(body).find('div.boxContent table[width="337"]').each(function() { 
+			console.log($(this).find('tr:first-child').next().find('td:last').html()); 
 		});
 	});
 	
