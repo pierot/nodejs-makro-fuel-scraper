@@ -23,10 +23,14 @@ http.createServer(function (req, res) {
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
 			console.log(i);
+			console.log(fuels[i]);
 			
 			i++;
 		});
 	});
+	
+	for(var j = 0; j < fuels.length; j++)
+		res.write(fuels[j]);
 	
 	res.end('</fuels>\n');
 }).listen(8124);
