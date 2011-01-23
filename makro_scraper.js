@@ -9,7 +9,7 @@ http.createServer(function (req, res) {
 
   res.write('a<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('a<fuels>\n');
-	
+	get_prices();
 	res.write(http_response);
 	
 	res.end('a</fuels>\n');
