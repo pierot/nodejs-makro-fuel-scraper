@@ -1,6 +1,7 @@
 var request = require('request'), http = require('http'), $ = require('jquery');
 
 http.createServer(function (req, res) {
+	console.log(querystring.parse(req.url));
 	request({uri: 'http://www.makro.be/Content/assortiment/benzinestation/benzineprijzen/1/index.jsp?stat='}, function (error, response, body) {
 		res.writeHead(200, {'Content-Type': 'text/xml'});
 
