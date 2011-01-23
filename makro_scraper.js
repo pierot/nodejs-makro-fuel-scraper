@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
   res.write('<?xml version="1.0" encoding="UTF-8"?>\n');
 	res.write('<fuels>\n');
 	
-	var fuels = ['a'];
+	var fuels = [];
 	var i = 0;
 	
   request({uri: url}, function (error, response, body) {
