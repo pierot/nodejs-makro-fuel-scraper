@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
 		$(body).find('div.boxContent table[width="337"]').each(function() { 
 			fuels.push('<' + fuel_types[i] + '>' + $(this).find('tr:first-child').next().find('td:last').html() + '</' + fuel_types[i] + '>\n'); 
 			
-			res.write(i);
+			res.write('' + i);
 			i++;
 		});
 		
